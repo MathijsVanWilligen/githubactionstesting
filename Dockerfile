@@ -13,3 +13,4 @@ RUN pip install pytest
 COPY tests tests/
 # COPY main.py main.py
 CMD ["/bin/bash"]
+#

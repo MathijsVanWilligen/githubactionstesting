@@ -1,18 +1,16 @@
 name: CI
-on:  
-  pull_request:    
-    branches:
-    - master  
+on: 
   push:
     branches:
     - master
 jobs:  
-  build:     
-   runs-on: ubuntu-latest
+  tests:
+    name: running Units Tests 
+    runs-on: ubuntu-latest
    
-   steps:    
-   - uses: actions/checkout@v1
-   - name: Build and test with Docker
-     run: |
-       docker build --tag research_project .
-       docker run --rm research_project pytest tests
+    steps:    
+    - uses: actions/checkout@v1
+    - name: Build and test with Docker
+      run: |
+        docker build --tag pytesting .
+        docker run --rm pytesting pytest tests
